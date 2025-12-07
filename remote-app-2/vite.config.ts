@@ -7,24 +7,11 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: "host-app",
+      name: "remote-app-2",
+      filename: "remoteEntry2.js",
       exposes: {
-        "./store": "./src/store/store",
-        "./userSlice": "./src/store/userSlice",
-      },
-      remotes: {
-        "remote-app-1": {
-          type: "module",
-          entry: "http://localhost:5001/remoteEntry1.js",
-          name: "remote-app-1",
-          shareScope: "default",
-        },
-        "remote-app-2": {
-          type: "module",
-          entry: "http://localhost:5002/remoteEntry2.js",
-          name: "remote-app-2",
-          shareScope: "default",
-        },
+        "./Cart": "./src/cart/Cart",
+        "./cartSlice": "./src/store/cartSlice",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },
@@ -41,13 +28,11 @@ export default defineConfig({
           requiredVersion: dependencies["@reduxjs/toolkit"],
         },
       },
-      hostInitInjectLocation: "html",
     }),
   ],
   server: {
-    origin: "http://localhost:5000",
-    port: 5000,
-    open: true,
+    origin: "http://localhost:5002",
+    port: 5002,
   },
   build: {
     target: "chrome89",
