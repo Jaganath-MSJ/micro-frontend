@@ -20,6 +20,7 @@ export type AppStore = typeof store & {
 (store as AppStore).injectReducer = function injectReducer(key: string, asyncReducer: Reducer) {
   // combineSlices.inject() automatically handles duplicates and returns the injected slice/reducer
   rootReducer.inject({ reducerPath: key, reducer: asyncReducer });
+  store.dispatch({ type: `@reducer/injected/${key}` });
   console.log(`Reducer '${key}' injected successfully`);
 };
 
