@@ -11,7 +11,9 @@ export function useInjectReducers({ name, reducer }: Slice) {
   const store = useStore() as StoreWithAsyncReducers;
 
   // Check if reducer already injected (to avoid re-injection)
-  const isInjected = useSelector((state: Record<string, unknown>) => !!state[name]);
+  const isInjected = useSelector(
+    (state: Record<string, unknown>) => !!state[name]
+  );
   console.log("isInjected", isInjected);
 
   useEffect(() => {
@@ -31,4 +33,4 @@ export function useInjectReducers({ name, reducer }: Slice) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return { isReady: isInjected };
-};
+}

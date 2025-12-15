@@ -4,17 +4,23 @@ import { useInjectReducers } from "../hooks/useInjectReducers";
 import cartSlice from "../store/cartSlice";
 
 interface RootState {
-  user?: { count: number };
+  user: { count: number };
   cart: CartState;
 }
 
 function CartContent() {
-  const count = useSelector((state: RootState) => state.user?.count);
+  const count = useSelector((state: RootState) => state.user.count);
   const { items, total } = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
   const handleAddItem = () => {
-    dispatch(addToCart({ id: new Date(Date.now()).toISOString(), name: `Product-${items.length + 1}`, price: Math.floor(Math.random() * 100) }));
+    dispatch(
+      addToCart({
+        id: new Date(Date.now()).toISOString(),
+        name: `Product-${items.length + 1}`,
+        price: Math.floor(Math.random() * 100),
+      })
+    );
   };
 
   return (
@@ -31,7 +37,7 @@ function CartContent() {
       <p>Inside Count: {count}</p>
     </div>
   );
-};
+}
 
 function CartContentWrapper() {
   const { isReady } = useInjectReducers(cartSlice);

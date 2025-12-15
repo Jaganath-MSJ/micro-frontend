@@ -15,9 +15,14 @@ export type AppStore = typeof store & {
   ejectReducer: (key: string) => void;
 };
 
+export type RootState = ReturnType<typeof rootReducer>;
+
 // Function to inject new reducers dynamically
 // combineSlices returns a reducer that has an .inject() method
-(store as AppStore).injectReducer = function injectReducer(key: string, asyncReducer: Reducer) {
+(store as AppStore).injectReducer = function injectReducer(
+  key: string,
+  asyncReducer: Reducer
+) {
   // combineSlices.inject() automatically handles duplicates and returns the injected slice/reducer
   rootReducer.inject({ reducerPath: key, reducer: asyncReducer });
   store.dispatch({ type: `@reducer/injected/${key}` });

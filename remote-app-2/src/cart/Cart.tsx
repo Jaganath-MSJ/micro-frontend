@@ -14,10 +14,10 @@ function Cart() {
       {/* <Activity mode={(count % 3) !== 0 ? 'visible' : 'hidden'}>
         <CartContent />
       </Activity> */}
-      {(count % 3) !== 0 && <CartContent />}
+      {count % 3 !== 0 && <CartContent />}
       <p>Outside Count: {count}</p>
     </>
   );
-};
+}
 
 export default Cart;
