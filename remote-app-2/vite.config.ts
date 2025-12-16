@@ -11,7 +11,6 @@ export default defineConfig({
       filename: "remoteEntry2.js",
       exposes: {
         "./Cart": "./src/cart/Cart",
-        "./cartSlice": "./src/store/cartSlice",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },

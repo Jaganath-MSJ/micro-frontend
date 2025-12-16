@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useStore, useSelector } from "react-redux";
 import type { Store, UnknownAction, Reducer, Slice } from "@reduxjs/toolkit";
 
-interface StoreWithAsyncReducers extends Store<any, UnknownAction> {
+interface StoreWithAsyncReducers extends Store<unknown, UnknownAction> {
   injectReducer?: (key: string, reducer: Reducer) => void;
   // ejectReducer?: (key: string) => void;
 }

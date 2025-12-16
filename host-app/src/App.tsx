@@ -6,7 +6,7 @@ import { incrementCount } from "./store/userSlice";
 const Remote1Button = lazy(() => import("remote-app-1/Button"));
 const Remote2Cart = lazy(() => import("remote-app-2/Cart"));
 
-const useSharedUtilsUtils = async () => {
+const loadSharedUtils = async () => {
   const utils = await import("sharedUtils/utils");
   return utils;
 };
@@ -15,7 +15,7 @@ function App() {
   const dispatch = useDispatch();
 
   const onCheckUtils = async () => {
-    const data = await useSharedUtilsUtils();
+    const data = await loadSharedUtils();
     console.log(data);
   };
 
