@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temp folder
+.__mf__temp
+._mf_temp
+.vite
