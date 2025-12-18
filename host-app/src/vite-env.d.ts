@@ -18,7 +18,7 @@ declare module "remote-app-2/Cart" {
   export default Cart;
 }
 
-declare module "sharedUtils/utils" {
+declare module "shared-utils/utils" {
   const utils: unknown;
   export default utils;
 }

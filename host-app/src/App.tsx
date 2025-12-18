@@ -8,7 +8,7 @@ const Remote1Button = lazy(() => import("remote-app-1/Button"));
 const Remote2Cart = lazy(() => import("remote-app-2/Cart"));
 
 const loadSharedUtils = async () => {
-  const utils = await import("sharedUtils/utils");
+  const utils = await import("shared-utils/utils");
   return utils;
 };
 
@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
 
   const onCheckUtils = async () => {
-    const data = await loadSharedUtils();
+    const data = (await loadSharedUtils()).getUserMessage();
     console.log(data);
   };
 

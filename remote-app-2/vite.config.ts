@@ -9,6 +9,14 @@ export default defineConfig({
     federation({
       name: "remote-app-2",
       filename: "remoteEntry2.js",
+      remotes: {
+        "shared-utils": {
+          type: "module",
+          entry: "http://localhost:5003/sharedEntry1.js",
+          name: "shared-utils",
+          shareScope: "default",
+        },
+      },
       exposes: {
         "./Cart": "./src/cart/Cart",
       },

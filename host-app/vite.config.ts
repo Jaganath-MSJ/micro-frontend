@@ -28,7 +28,7 @@ export default defineConfig({
         "shared-utils": {
           type: "module",
           entry: "http://localhost:5003/sharedEntry1.js",
-          name: "sharedUtils",
+          name: "shared-utils",
           shareScope: "default",
         },
       },
