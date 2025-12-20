@@ -13,6 +13,8 @@ export default defineConfig({
       exposes: {
         "./hooks": "./src/hooks/index",
         "./utils": "./src/utils/index",
+        "./eventBus": "./src/eventBus",
+        "./eventTypes": "./src/eventTypes",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },
