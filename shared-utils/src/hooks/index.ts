@@ -1,3 +1,2 @@
-import useInjectReducers from "./useInjectReducers";
-export { useInjectReducers };
-export { useEventBus, useEventEmit } from "./useEventBus";
+export * from "./useInjectReducers";
+export * from "./useEventBus";

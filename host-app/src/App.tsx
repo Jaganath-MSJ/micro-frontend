@@ -1,27 +1,17 @@
-import { lazy, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
-import { useDispatch } from "react-redux";
-import { incrementCount } from "./store/userSlice";
-import { RemoteComponentWrapper } from "./components/RemoteComponentWrapper";
-
-// Lazy load remote components
-const Remote1Button = lazy(() => import("remote-app-1/Button"));
-const Remote2Cart = lazy(() => import("remote-app-2/Cart"));
+import { AppRouter } from "./Router";
+import { NavigationProvider } from "./navigation/NavigationProvider";
+import { importRemoteFunction } from "./utils/utils";
 
 // Load shared utils
-const loadSharedUtils = async () => {
-  const utils = await import("shared-utils/utils");
-  return utils;
-};
+const loadSharedUtils = import("shared-utils/utils");
 
 // Load event bus
-const loadEventBus = async () => {
-  const { eventBus } = await import("shared-utils/eventBus");
-  return eventBus;
-};
+// const loadEventBus = importRemoteFunction("shared-utils/eventBus");
+const loadEventBus = import("shared-utils/eventBus");
 
 function App() {
-  const dispatch = useDispatch();
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [notifications, setNotifications] = useState<string[]>([]);
 
@@ -33,7 +23,7 @@ function App() {
     let unsubscribeButton: (() => void) | undefined;
     let unsubscribeCart: (() => void) | undefined;
 
-    loadEventBus().then((eventBus) => {
+    loadEventBus.then(({ eventBus }) => {
       // Listen to user logout events
       unsubscribeLogout = eventBus.on("user:logout", (payload) => {
         console.log("🚪 User logged out:", payload);
@@ -81,15 +71,15 @@ function App() {
   };
 
   const onCheckUtils = async () => {
-    const data = (await loadSharedUtils()).getUserMessage();
+    const data = (await loadSharedUtils).getUserMessage();
     console.log(data);
-    const eventBus = await loadEventBus();
+    const { eventBus } = await loadEventBus;
     const handler = eventBus.getHandlers();
     console.log("all handler", handler);
   };
 
   const handleLogout = async () => {
-    const eventBus = await loadEventBus();
+    const { eventBus } = await loadEventBus;
     eventBus.emit("user:logout", {
       userId: "user-123",
       timestamp: Date.now(),
@@ -97,7 +87,7 @@ function App() {
   };
 
   const handleThemeToggle = async () => {
-    const eventBus = await loadEventBus();
+    const { eventBus } = await loadEventBus;
     const newTheme = theme === "light" ? "dark" : "light";
     eventBus.emit("theme:changed", {
       theme: newTheme,
@@ -106,7 +96,7 @@ function App() {
   };
 
   const handleShowNotification = async () => {
-    const eventBus = await loadEventBus();
+    const { eventBus } = await loadEventBus;
     eventBus.emit("notification:show", {
       id: `notif-${Date.now()}`,
       message: "This is a test notification from Host App!",
@@ -184,27 +174,11 @@ function App() {
         </div>
       )}
 
-      {/* Remote Components */}
+      {/* <NavigationProvider> */}
       <div style={{ marginTop: "20px" }}>
-        <h3>📦 Remote Components</h3>
-
-        <RemoteComponentWrapper
-          moduleName="remote-app-1/Button"
-          fallback={<div>Loading remote 1 button component...</div>}
-        >
-          <Remote1Button
-            label={`Click from Remote`}
-            onClick={() => dispatch(incrementCount())}
-          />
-        </RemoteComponentWrapper>
-
-        <RemoteComponentWrapper
-          moduleName="remote-app-2/Cart"
-          fallback={<div>Loading remote 2 cart component...</div>}
-        >
-          <Remote2Cart />
-        </RemoteComponentWrapper>
+        <AppRouter />
       </div>
+      {/* </NavigationProvider> */}
     </div>
   );
 }

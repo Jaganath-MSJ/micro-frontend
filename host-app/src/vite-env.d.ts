@@ -97,3 +97,21 @@ declare module "shared-utils/eventTypes" {
     "cart:item-added": CartItemAddedEvent;
   };
 }
+
+declare module "shared-utils/types" {
+  // export * from "shared-utils/src/types/index";
+  // // We need to properly type this based on what we exposed.
+  // // Since we exposed it via module federation, we should declare it:
+  // import { AppRoutes } from "shared-utils/src/types/routes";
+  // import {
+  //   NavigationMethods,
+  //   NavigationEvent,
+  //   NAVIGATION_EVENTS,
+  // } from "shared-utils/src/types/navigation";
+
+  // export const ROUTES: AppRoutes;
+  // export type { NavigationEvent, NavigationMethods };
+  // export const NAVIGATION_EVENTS: typeof NAVIGATION_EVENTS;
+  const value: unknown;
+  export default value;
+}

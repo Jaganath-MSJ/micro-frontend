@@ -15,6 +15,7 @@ export default defineConfig({
         "./utils": "./src/utils/index",
         "./eventBus": "./src/eventBus",
         "./eventTypes": "./src/eventTypes",
+        "./types": "./src/types/index",
       },
       shared: {
         react: { singleton: true, requiredVersion: dependencies.react },

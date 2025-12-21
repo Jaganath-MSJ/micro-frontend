@@ -1,3 +1,1 @@
-import { getUserMessage } from "./utils";
-
-export { getUserMessage };
+export * from "./utils";
