@@ -7,11 +7,6 @@ const types = await import("shared-utils/types");
 
 // Lazy load remotes
 const Remote2Cart = lazy(() => import("remote-app-2/Cart"));
-// For Remote 1, we plan to expose routes/index, but currently we only can assume what is available or stub it.
-// The plan says we WILL update remotes. For now, let's keep existing components or stub new ones.
-// Current Host App loads Button from remote-1.
-// We'll update this once remotes expose routes.
-// For now, let's setup the structure.
 
 const Home = () => (
   <div>
@@ -31,14 +26,11 @@ export const AppRouter = () => {
       <Routes>
         <Route path={`${types.ROUTES.HOME}`} element={<Home />} />
 
-        {/* Remote 1 Routes - Placeholder until Remote 1 is updated */}
+        {/* Remote 1 Routes */}
         <Route
           path={`${types.ROUTES.REMOTE1.ROOT}`}
           element={
-            <RemoteComponentWrapper
-              moduleName="remote-app-1/Button"
-              fallback={<div>Loading remote 1 button component...</div>}
-            >
+            <RemoteComponentWrapper moduleName="remote-app-1/Button">
               <Button />
             </RemoteComponentWrapper>
           }
@@ -48,10 +40,7 @@ export const AppRouter = () => {
         <Route
           path={`${types.ROUTES.REMOTE2.CART}`}
           element={
-            <RemoteComponentWrapper
-              moduleName="remote-app-2/Cart"
-              fallback={<div>Loading remote 2 cart component...</div>}
-            >
+            <RemoteComponentWrapper moduleName="remote-app-2/Cart">
               <Remote2Cart />
             </RemoteComponentWrapper>
           }
