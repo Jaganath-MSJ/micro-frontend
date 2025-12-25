@@ -2,7 +2,7 @@ import { lazy } from "react";
 import { useDispatch } from "react-redux";
 import { incrementCount } from "../../store/userSlice";
 
-const Remote1Button = lazy(() => import("remote-app-1/Button"));
+const Remote1Button = lazy(() => import("remoteApp1/Button"));
 function Button() {
   const dispatch = useDispatch();
   return (
