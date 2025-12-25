@@ -18,16 +18,16 @@ export default createModuleFederationConfig({
     },
     "react-dom": {
       singleton: true,
-      // requiredVersion: dependencies["react-dom"],
+      requiredVersion: dependencies["react-dom"],
     },
     "react-redux": {
       singleton: true,
-      // requiredVersion: dependencies["react-redux"],
+      requiredVersion: dependencies["react-redux"],
     },
     "@reduxjs/toolkit": {
       singleton: true,
-      // requiredVersion: dependencies["@reduxjs/toolkit"],
+      requiredVersion: dependencies["@reduxjs/toolkit"],
     },
   },
-  // dts: true,
+  implementation: require.resolve('@module-federation/runtime-tools'),
 });
