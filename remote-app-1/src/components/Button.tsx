@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 
 const loadSharedUtils = async () => {
-  const utils = await import("shared-utils/utils");
+  const utils = await import("sharedUtils/utils");
   return utils;
 };
 
 const loadEventBus = async () => {
-  const { eventBus } = await import("shared-utils/eventBus");
+  const { eventBus } = await import("sharedUtils/eventBus");
   return eventBus;
 };
 

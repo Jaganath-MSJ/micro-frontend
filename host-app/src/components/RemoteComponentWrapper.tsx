@@ -18,7 +18,7 @@ interface RemoteComponentWrapperProps {
  * @example
  * ```tsx
  * <RemoteComponentWrapper
- *   moduleName="remote-app-1/Button"
+ *   moduleName="remoteApp1/Button"
  *   fallback={<LoadingSpinner />}
  * >
  *   <Remote1Button />

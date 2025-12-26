@@ -4,10 +4,10 @@ import { AppRouter } from "./Router";
 import Navbar from "./components/Navbar";
 
 // Load shared utils
-const loadSharedUtils = import("shared-utils/utils");
+const loadSharedUtils = import("sharedUtils/utils");
 
 // Load event bus
-const loadEventBus = import("shared-utils/eventBus");
+const loadEventBus = import("sharedUtils/eventBus");
 
 function App() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -108,7 +108,7 @@ function App() {
       style={{
         backgroundColor: theme === "dark" ? "#1a1a1a" : "#ffffff",
         color: theme === "dark" ? "#ffffff" : "#000000",
-        minHeight: "100vh",
+        minHeight: "86vh",
         padding: "20px",
         transition: "all 0.3s ease",
       }}
@@ -174,7 +174,14 @@ function App() {
       )}
 
       {/* <NavigationProvider> */}
-      <div style={{ marginTop: "20px" }}>
+      <div
+        style={{
+          padding: "15px",
+          border: "2px solid #F16A3C",
+          borderRadius: "8px",
+          backgroundColor: theme === "dark" ? "#2a2a2a" : "#e3f2fd",
+        }}
+      >
         <AppRouter />
       </div>
       {/* </NavigationProvider> */}

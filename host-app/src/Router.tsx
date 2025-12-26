@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import Button from "./pages/remote-1/Button";
 import { RemoteComponentWrapper } from "./errorBoundary.exports";
 
-const types = await import("shared-utils/types");
+const types = await import("sharedUtils/types");
 
 // Lazy load remotes
-const Remote2Cart = lazy(() => import("remote-app-2/Cart"));
+const Remote2Cart = lazy(() => import("remoteApp2/Cart"));
 
 const Home = () => (
   <div>
@@ -30,7 +30,7 @@ export const AppRouter = () => {
         <Route
           path={`${types.ROUTES.REMOTE1.ROOT}`}
           element={
-            <RemoteComponentWrapper moduleName="remote-app-1/Button">
+            <RemoteComponentWrapper moduleName="remoteApp1/Button">
               <Button />
             </RemoteComponentWrapper>
           }
@@ -40,7 +40,7 @@ export const AppRouter = () => {
         <Route
           path={`${types.ROUTES.REMOTE2.CART}`}
           element={
-            <RemoteComponentWrapper moduleName="remote-app-2/Cart">
+            <RemoteComponentWrapper moduleName="remoteApp2/Cart">
               <Remote2Cart />
             </RemoteComponentWrapper>
           }
