@@ -4,15 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev-host-app": "cd host-app & npm run dev",
-    "dev-remote-app-1": "cd remote-app-1 & npm run dev",
-    "dev-remote-app-2": "cd remote-app-2 & npm run dev",
-    "dev-shared-utils": "cd shared-utils & npm run dev",
-    "dev-all": "wt new-tab -d \"./shared-utils\" cmd /k \"npm run dev\" ;new-tab -d \"./remote-app-2\" cmd /k \"npm run dev\" ; new-tab -d \"./remote-app-1\" cmd /k \"npm run dev\" ; new-tab -d \"./host-app\" cmd /k \"npm run dev\"",
-    "build-all": "cd host-app & npm run build & cd ../remote-app-1 & npm run build & cd ../remote-app-2 & npm run build & cd ../shared-utils & npm run build",
-    "lint-all": "cd host-app & npm run lint & cd ../remote-app-2 & npm run lint & cd ../remote-app-2 & npm run lint & cd ../shared-utils & npm run lint",
-    "install-all": "cd host-app & npm install & cd ../remote-app-1 & npm install & cd ../remote-app-2 & npm install & cd ../shared-utils & npm install",
-    "del-temp-all": "cd host-app & npm run del-temp & cd ../remote-app-1 & npm run del-temp & cd ../remote-app-2 & npm run del-temp & cd ../shared-utils & npm run del-temp",
-    "del-node-modules-all": "rmdir /s /q \"host-app/node_modules\" & rmdir /s /q \"remote-app-1/node_modules\" & rmdir /s /q \"remote-app-2/node_modules\" & rmdir /s /q \"shared-utils/node_modules\""
+    "dev:host-app": "cd host-app & npm run dev",
+    "dev:remote-app-1": "cd remote-app-1 & npm run dev",
+    "dev:remote-app-2": "cd remote-app-2 & npm run dev",
+    "dev:shared-utils": "cd shared-utils & npm run dev",
+    "dev:all": "wt new-tab -d \"./shared-utils\" cmd /k \"npm run dev\" ;new-tab -d \"./remote-app-1\" cmd /k \"npm run dev\" ; new-tab -d \"./remote-app-2\" cmd /k \"npm run dev\" ; new-tab -d \"./host-app\" cmd /k \"npm run dev\"",
+    "build:all": "cd shared-utils & npm run build & cd ../remote-app-1 & npm run build & cd ../remote-app-2 & npm run build & cd ../host-app & npm run build",
+    "lint:all": "cd host-app & npm run lint & cd ../remote-app-1 & npm run lint & cd ../remote-app-2 & npm run lint & cd ../shared-utils & npm run lint",
+    "install:all": "cd host-app & npm install & cd ../remote-app-1 & npm install & cd ../remote-app-2 & npm install & cd ../shared-utils & npm install",
+    "del-temp:all": "cd host-app & npm run del-temp & cd ../remote-app-1 & npm run del-temp & cd ../remote-app-2 & npm run del-temp & cd ../shared-utils & npm run del-temp",
+    "del-node-modules:all": "rmdir /s /q \"host-app/node_modules\" & rmdir /s /q \"remote-app-1/node_modules\" & rmdir /s /q \"remote-app-2/node_modules\" & rmdir /s /q \"shared-utils/node_modules\""
   }
 }
