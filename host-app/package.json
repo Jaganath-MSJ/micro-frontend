@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "rsbuild dev --open",
-    "build": "npm run del-temp & rsbuild build",
+    "build": "rsbuild build",
     "lint": "eslint . & npx tsc",
     "preview": "rsbuild preview",
     "del-temp": "rmdir /s /q \"dist\" \"node_modules/.federation\" \"@mf-types\""
