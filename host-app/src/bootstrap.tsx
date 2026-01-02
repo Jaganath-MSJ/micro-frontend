@@ -3,7 +3,7 @@ import App from "./App";
 import { AppErrorBoundary } from "./components/AppErrorBoundary";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router";
 import "./index.css";
 
 const rootEl = document.getElementById("root");

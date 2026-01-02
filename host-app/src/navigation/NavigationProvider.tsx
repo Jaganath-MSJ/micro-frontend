@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import type { ReactNode } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router";
 import { NavigationContext } from "./NavigationContext";
 import type { NavigationEvent, NavigationMethods } from "./NavigationContext";
 

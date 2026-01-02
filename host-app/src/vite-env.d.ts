@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module "remote-app-1/Button" {
+declare module "remoteApp1/Button" {
   const Button: React.ComponentType<{
     label: string;
     onClick: () => void;
@@ -8,23 +8,23 @@ declare module "remote-app-1/Button" {
   export default Button;
 }
 
-declare module "remote-app-1/*" {
+declare module "remoteApp1/*" {
   const value: unknown;
   export default value;
 }
 
-declare module "remote-app-2/Cart" {
+declare module "remoteApp2/Cart" {
   const Cart: React.ComponentType;
   export default Cart;
 }
 
-declare module "shared-utils/utils" {
+declare module "sharedUtils/utils" {
   const utils: unknown;
   export default utils;
 }
 
-declare module "shared-utils/eventBus" {
-  import type { EventBusEvents } from "shared-utils/eventTypes";
+declare module "sharedUtils/eventBus" {
+  import type { EventBusEvents } from "sharedUtils/eventTypes";
 
   export const eventBus: {
     emit<K extends keyof EventBusEvents>(
@@ -49,7 +49,7 @@ declare module "shared-utils/eventBus" {
   export type { EventBusEvents };
 }
 
-declare module "shared-utils/eventTypes" {
+declare module "sharedUtils/eventTypes" {
   export interface UserLoginEvent {
     userId: string;
     email: string;
@@ -100,16 +100,16 @@ declare module "shared-utils/eventTypes" {
   };
 }
 
-declare module "shared-utils/types" {
-  // export * from "shared-utils/src/types/index";
+declare module "sharedUtils/types" {
+  // export * from "sharedUtils/src/types/index";
   // // We need to properly type this based on what we exposed.
   // // Since we exposed it via module federation, we should declare it:
-  // import { AppRoutes } from "shared-utils/src/types/routes";
+  // import { AppRoutes } from "sharedUtils/src/types/routes";
   // import {
   //   NavigationMethods,
   //   NavigationEvent,
   //   NAVIGATION_EVENTS,
-  // } from "shared-utils/src/types/navigation";
+  // } from "sharedUtils/src/types/navigation";
 
   // export const ROUTES: AppRoutes;
   // export type { NavigationEvent, NavigationMethods };

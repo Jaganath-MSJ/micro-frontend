@@ -1,11 +1,11 @@
 /// <reference types="vite/client" />
 
-declare module "shared-utils/utils" {
+declare module "sharedUtils/utils" {
   const utils: unknown;
   export default utils;
 }
 
-declare module "shared-utils/eventBus" {
+declare module "sharedUtils/eventBus" {
   import type { EventBusEvents } from "shared-utils/eventTypes";
 
   export const eventBus: {
@@ -31,7 +31,7 @@ declare module "shared-utils/eventBus" {
   export type { EventBusEvents };
 }
 
-declare module "shared-utils/eventTypes" {
+declare module "sharedUtils/eventTypes" {
   export interface ThemeChangedEvent {
     theme: "light" | "dark";
     timestamp: number;
