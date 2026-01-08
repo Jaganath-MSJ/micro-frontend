@@ -46,8 +46,12 @@ export default defineConfig({
           singleton: true,
           requiredVersion: dependencies["@reduxjs/toolkit"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: dependencies["react-router-dom"],
+        },
       },
-      hostInitInjectLocation: "html",
+      // hostInitInjectLocation: "html",
       runtimePlugins: ["./src/plugins/federationLogger.ts"],
     }),
   ],

@@ -1,8 +1,7 @@
 /// <reference types="vite/client" />
 
 declare module "shared-utils/utils" {
-  const utils: unknown;
-  export default utils;
+  export function getUserMessage(user?: boolean): string;
 }
 
 declare module "shared-utils/eventBus" {

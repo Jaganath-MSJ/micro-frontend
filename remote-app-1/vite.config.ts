@@ -35,6 +35,10 @@ export default defineConfig({
           singleton: true,
           requiredVersion: dependencies["@reduxjs/toolkit"],
         },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: dependencies["react-router-dom"],
+        },
       },
     }),
   ],
